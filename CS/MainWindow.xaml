@@ -1,0 +1,140 @@
+﻿<Window x:Class="DXGridSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxet="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+        xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:local="clr-namespace:DXGridSample"
+        Height="350"
+        Width="525"
+        DataContext="{dxmvvm:ViewModelSource Type=local:MainViewModel}"
+        Name="win"
+        Title="MainWindow">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="HeaderTemplate">
+                <TextBlock Text="{Binding}" FontWeight="Bold"/>
+            </DataTemplate>
+            <DataTemplate x:Key="PortfolioGroupItemTemplate" DataType="{x:Type local:Item}">
+                <Grid HorizontalAlignment="Stretch" Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0">
+                        <!--<TextBlock Text="{Binding GroupName}"
+                                   TextTrimming="CharacterEllipsis"
+                                   MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />-->
+                        <TextBlock Text="{Binding Name}"
+                                   TextTrimming="CharacterEllipsis"
+                                   MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1">
+                        <Button
+                            BorderThickness="0"
+                            VerticalAlignment="Center"
+                            ToolTip="Edit"
+                            Margin="0,0,0,0"
+                           >
+                            <TextBlock>Image</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+          
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <!--<dxe:ListBoxEdit ItemsSource="{Binding GroupedItems}"
+                         DisplayMember="name"
+                         AllowCollectionView="True"
+                         ScrollUnit="Pixel"
+                         ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
+                                          HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch">
+            <dxe:ListBoxEdit.GroupStyle>
+                <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander Header="{Binding Path=Name}" HeaderTemplate="{StaticResource HeaderTemplate}" IsExpanded="False"
+                                                  HorizontalContentAlignment="Stretch" Margin="3,3,3,0">
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </dxe:ListBoxEdit.GroupStyle>
+        </dxe:ListBoxEdit>-->
+         <dxe:ListBoxEdit ItemsSource="{Binding GroupedItems}"
+                         AllowCollectionView="True"
+                         ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
+                                          HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch">
+            <dxe:ListBoxEdit.EditTemplate>
+                <ControlTemplate>
+                    <dxe:EditorListBox x:Name="PART_Editor" Style="{dxi:ThemeResource {dxet:ListBoxEditThemeKey ResourceKey=ListBoxStyle}}"
+                                       VirtualizingPanel.IsVirtualizingWhenGrouping="True"/>
+                </ControlTemplate>
+            </dxe:ListBoxEdit.EditTemplate>
+            <dxe:ListBoxEdit.GroupStyle>
+                <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander Header="{Binding Path=Name}" HeaderTemplate="{StaticResource HeaderTemplate}" IsExpanded="False"
+                                                  HorizontalContentAlignment="Stretch" Margin="3,3,3,0">
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </dxe:ListBoxEdit.GroupStyle>
+        </dxe:ListBoxEdit>
+        <!--<ListBox ItemsSource="{Binding GroupedItems}"
+                         ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
+                                          HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch"
+                 ScrollViewer.CanContentScroll="True">
+            <ListBox.GroupStyle>
+                <GroupStyle HidesIfEmpty="True">
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander Header="{Binding Path=Name}" HeaderTemplate="{StaticResource HeaderTemplate}" IsExpanded="False"
+                                                  HorizontalContentAlignment="Stretch" Margin="3,3,3,0">
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListBox.GroupStyle>
+        </ListBox>-->
+    </Grid>
+
+</Window>
