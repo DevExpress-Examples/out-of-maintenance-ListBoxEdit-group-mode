@@ -52,33 +52,6 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <!--<dxe:ListBoxEdit ItemsSource="{Binding GroupedItems}"
-                         DisplayMember="name"
-                         AllowCollectionView="True"
-                         ScrollUnit="Pixel"
-                         ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
-                                          HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch">
-            <dxe:ListBoxEdit.GroupStyle>
-                <GroupStyle HidesIfEmpty="True">
-                    <GroupStyle.ContainerStyle>
-                        <Style TargetType="{x:Type GroupItem}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Expander Header="{Binding Path=Name}" HeaderTemplate="{StaticResource HeaderTemplate}" IsExpanded="False"
-                                                  HorizontalContentAlignment="Stretch" Margin="3,3,3,0">
-                                            <ItemsPresenter />
-                                        </Expander>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </GroupStyle.ContainerStyle>
-                </GroupStyle>
-            </dxe:ListBoxEdit.GroupStyle>
-        </dxe:ListBoxEdit>-->
          <dxe:ListBoxEdit ItemsSource="{Binding GroupedItems}"
                          AllowCollectionView="True"
                          ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
@@ -110,31 +83,6 @@
                 </GroupStyle>
             </dxe:ListBoxEdit.GroupStyle>
         </dxe:ListBoxEdit>
-        <!--<ListBox ItemsSource="{Binding GroupedItems}"
-                         ItemTemplate="{StaticResource PortfolioGroupItemTemplate}"
-                                          HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch"
-                 HorizontalContentAlignment="Stretch"
-                 ScrollViewer.CanContentScroll="True">
-            <ListBox.GroupStyle>
-                <GroupStyle HidesIfEmpty="True">
-                    <GroupStyle.ContainerStyle>
-                        <Style TargetType="{x:Type GroupItem}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Expander Header="{Binding Path=Name}" HeaderTemplate="{StaticResource HeaderTemplate}" IsExpanded="False"
-                                                  HorizontalContentAlignment="Stretch" Margin="3,3,3,0">
-                                            <ItemsPresenter />
-                                        </Expander>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </GroupStyle.ContainerStyle>
-                </GroupStyle>
-            </ListBox.GroupStyle>
-        </ListBox>-->
     </Grid>
 
 </Window>
