@@ -8,14 +8,14 @@ Imports System.Windows
 Imports System.Windows.Threading
 
 Namespace DXGridSample
-    ''' <summary>
-    ''' Interaction logic for App.xaml
-    ''' </summary>
-    Partial Public Class App
-        Inherits Application
+	''' <summary>
+	''' Interaction logic for App.xaml
+	''' </summary>
+	Partial Public Class App
+		Inherits Application
 
-        Public Sub New()
-            ApplicationThemeHelper.UseLegacyDefaultTheme = False
-        End Sub
-    End Class
+		Public Sub New()
+			ApplicationThemeHelper.UseLegacyDefaultTheme = False
+		End Sub
+	End Class
 End Namespace
