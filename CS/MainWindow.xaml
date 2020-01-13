@@ -28,9 +28,6 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="0">
-                        <!--<TextBlock Text="{Binding GroupName}"
-                                   TextTrimming="CharacterEllipsis"
-                                   MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />-->
                         <TextBlock Text="{Binding Name}"
                                    TextTrimming="CharacterEllipsis"
                                    MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Grid}}}" />
@@ -41,8 +38,7 @@
                             BorderThickness="0"
                             VerticalAlignment="Center"
                             ToolTip="Edit"
-                            Margin="0,0,0,0"
-                           >
+                            Margin="0,0,0,0">
                             <TextBlock>Image</TextBlock>
                         </Button>
                     </StackPanel>
@@ -84,5 +80,4 @@
             </dxe:ListBoxEdit.GroupStyle>
         </dxe:ListBoxEdit>
     </Grid>
-
 </Window>
